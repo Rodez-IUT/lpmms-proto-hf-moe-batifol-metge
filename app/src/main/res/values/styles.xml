@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="text" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:layout_marginLeft">@dimen/marging</item>
+        <item name="android:layout_marginRight">@dimen/marging</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>
