@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">CadavreExquis</string>
+
+    <!-- text diver  -->
+    <string name="Titre">CREER UNE PARTIE</string>
+    <string name="Nom">Nom</string>
+    <string name="Type">Type</string>
+    <string name="Manche">Manche</string>
+    <string name="Joueur">Joueur</string>
+    <string name="Theme">Theme</string>
+    <string name="Langue">Langue</string>
+    <string name="Confidentialite">Confidentialite</string>
+    <string name="aide">"?"</string>
+
+
+
+    <!-- Bouton  -->
+    <string name="Inviter">Inviter</string>
+    <string name="plus">+</string>
+    <string name="moins">-</string>
+    <string name="annuler">Annuler</string>
+    <string name="creer">Creer</string>
+
+
+
+    <!-- hind  -->
+    <string name="formePhrase">Forme de la phrase</string>
+
+
 </resources>
