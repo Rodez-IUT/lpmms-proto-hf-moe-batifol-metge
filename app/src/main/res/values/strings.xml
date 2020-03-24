@@ -27,4 +27,42 @@
     <string name="formePhrase">Forme de la phrase</string>
 
 
+    <!-- Liste des types de partie -->
+    <string-array name="typesPartie">
+        <item>"Rapide"</item>
+        <item>"Classique"</item>
+        <item>"Longue"</item>
+        <item>"Interminable"</item>
+        <item>"Personnalisée"</item>
+    </string-array>
+    <string-array name="typesPartieNb">
+        <item>"2"</item>
+        <item>"5"</item>
+        <item>"10"</item>
+        <item>"20"</item>
+    </string-array>
+
+    <!-- Liste thèmes -->
+    <string-array name="themes">
+        <item>"Aucun"</item>
+        <item>"Animaux"</item>
+        <item>"Beauf"</item>
+        <item>"Sexe"</item>
+    </string-array>
+
+    <!-- Liste langues -->
+    <string-array name="langues">
+        <item>"Allemand"</item>
+        <item>"Anglais"</item>
+        <item>"Espagnol"</item>
+        <item>"Français"</item>
+    </string-array>
+
+    <!-- Liste règles de confidentialité -->
+    <string-array name="confidentialites">
+        <item>"Publique"</item>
+        <item>"Amis uniquement"</item>
+    </string-array>
+
+
 </resources>
