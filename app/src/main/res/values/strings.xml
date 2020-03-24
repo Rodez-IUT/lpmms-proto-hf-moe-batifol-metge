@@ -20,11 +20,11 @@
     <string name="moins">-</string>
     <string name="annuler">Annuler</string>
     <string name="creer">Creer</string>
+    <string name="FormePhrase">Forme de la phrase</string>
 
 
 
     <!-- hind  -->
-    <string name="formePhrase">Forme de la phrase</string>
 
 
     <!-- Liste des types de partie -->

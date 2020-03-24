@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marging">16dp</dimen>
+
+
+
+    <!-- taille police d'ecriture -->
+    <dimen name="texthint">14dp</dimen>
+    <dimen name="textgrostitre">20dp</dimen>
+    <dimen name="textnormal">15dp</dimen>
+
+    <dimen name="interline">8dp</dimen>
+</resources>

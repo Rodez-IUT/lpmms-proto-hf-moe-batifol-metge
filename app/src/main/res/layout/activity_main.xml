@@ -1,18 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:stretchColumns="1,2,3"
     tools:context=".MainActivity">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="coucou!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/marging"
+        android:gravity="center"
+        android:text="@string/Titre" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/bpAide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aide" />
+
+    <TableRow>
+
+        <TextView android:text="@string/Nom"
+            style="@style/text"/>
+
+        <EditText
+            android:id="@+id/saisiePrix"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView android:text="@string/Type"
+            style="@style/text"/>
+
+        <EditText
+            android:id="@+id/saisieType"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/Manche"
+            style="@style/text"/>
+        <Button
+            android:id="@+id/bpMoinsManche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moins"
+            android:layout_column="1"
+            android:layout_span="1"/>
+
+        <TextView
+            android:id="@+id/txtNbManche"
+            android:layout_span="1"
+            android:layout_column="2"
+            android:maxLength="15"
+            android:singleLine="true" />
+        <Button
+            android:id="@+id/bpPlusManche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:layout_column="3"
+            android:layout_span="1"/>
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView android:text="@string/Joueur"
+            style="@style/text"/>
+        <Button
+            android:id="@+id/bpMoinsJoueur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moins"
+            android:layout_column="1"
+            android:layout_span="1"/>
+
+        <TextView
+            android:id="@+id/txtNbJoueur"
+            android:layout_span="1"
+            android:layout_column="2"
+            android:maxLength="15"
+            android:singleLine="true" />
+        <Button
+            android:id="@+id/bpPlusJoueur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:layout_column="3"
+            android:layout_span="1"/>
+
+    </TableRow>
+
+    <TableRow>
+
+
+        <Button
+            android:id="@+id/bpFormePhrase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/FormePhrase"
+            android:layout_column="1"
+            android:layout_span="3"/>
+
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/Theme"
+            style="@style/text"/>
+
+        <EditText
+            android:id="@+id/saisieTheme"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/Langue"
+            style="@style/text"/>
+
+        <EditText
+            android:id="@+id/saisieLangue"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView android:text="@string/Confidentialite"
+            style="@style/text"  />
+
+        <EditText
+            android:id="@+id/saisieConfidentialiter"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/bpInvite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Inviter"
+            android:layout_column="0"
+            android:layout_span="1"/>
+
+        <TextView
+            android:id="@+id/txtInviter"
+            android:layout_span="3"
+            android:maxLength="15"
+            android:singleLine="true" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/bpAnnuler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/annuler"
+            android:layout_column="0"
+            android:layout_span="1"/>
+
+        <Button
+            android:id="@+id/bpCreer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/creer"
+            android:layout_column="2"
+            android:layout_span="2"/>
+
+    </TableRow>
+
+
+
+</TableLayout>
