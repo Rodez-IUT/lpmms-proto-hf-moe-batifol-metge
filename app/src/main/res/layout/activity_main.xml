@@ -27,7 +27,7 @@
             style="@style/text"/>
 
         <EditText
-            android:id="@+id/saisiePrix"
+            android:id="@+id/saisieNom"
             android:layout_span="3"
             android:maxLength="15"
             android:singleLine="true" />
@@ -40,11 +40,10 @@
         <TextView android:text="@string/Type"
             style="@style/text"/>
 
-        <EditText
-            android:id="@+id/saisieType"
+        <Spinner
+            android:id="@+id/spinTypePartie"
             android:layout_span="3"
-            android:maxLength="15"
-            android:singleLine="true" />
+            android:maxLength="15" />
 
     </TableRow>
 
@@ -53,7 +52,7 @@
         <TextView android:text="@string/Manche"
             style="@style/text"/>
         <Button
-            android:id="@+id/bpMoinsManche"
+            android:id="@+id/bpManchesMoins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/moins"
@@ -61,13 +60,13 @@
             android:layout_span="1"/>
 
         <TextView
-            android:id="@+id/txtNbManche"
+            android:id="@+id/txtManches"
             android:layout_span="1"
             android:layout_column="2"
             android:maxLength="15"
             android:singleLine="true" />
         <Button
-            android:id="@+id/bpPlusManche"
+            android:id="@+id/bpManchesPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plus"
@@ -82,7 +81,7 @@
         <TextView android:text="@string/Joueur"
             style="@style/text"/>
         <Button
-            android:id="@+id/bpMoinsJoueur"
+            android:id="@+id/bpJoueursMoins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/moins"
@@ -90,13 +89,13 @@
             android:layout_span="1"/>
 
         <TextView
-            android:id="@+id/txtNbJoueur"
+            android:id="@+id/txtJoueurs"
             android:layout_span="1"
             android:layout_column="2"
             android:maxLength="15"
             android:singleLine="true" />
         <Button
-            android:id="@+id/bpPlusJoueur"
+            android:id="@+id/bpJoueursPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plus"
@@ -124,11 +123,10 @@
         <TextView android:text="@string/Theme"
             style="@style/text"/>
 
-        <EditText
-            android:id="@+id/saisieTheme"
+        <Spinner
+            android:id="@+id/spinTheme"
             android:layout_span="3"
-            android:maxLength="15"
-            android:singleLine="true" />
+            android:maxLength="15" />
 
     </TableRow>
 
@@ -137,11 +135,10 @@
         <TextView android:text="@string/Langue"
             style="@style/text"/>
 
-        <EditText
-            android:id="@+id/saisieLangue"
+        <Spinner
+            android:id="@+id/spinLangue"
             android:layout_span="3"
-            android:maxLength="15"
-            android:singleLine="true" />
+            android:maxLength="15"/>
 
     </TableRow>
 
@@ -151,18 +148,17 @@
         <TextView android:text="@string/Confidentialite"
             style="@style/text"  />
 
-        <EditText
-            android:id="@+id/saisieConfidentialiter"
+        <Spinner
+            android:id="@+id/spinConfidentialite"
             android:layout_span="3"
-            android:maxLength="15"
-            android:singleLine="true" />
+            android:maxLength="15" />
 
     </TableRow>
 
     <TableRow>
 
         <Button
-            android:id="@+id/bpInvite"
+            android:id="@+id/bpInviter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Inviter"
@@ -170,7 +166,7 @@
             android:layout_span="1"/>
 
         <TextView
-            android:id="@+id/txtInviter"
+            android:id="@+id/txtAmis"
             android:layout_span="3"
             android:maxLength="15"
             android:singleLine="true" />
