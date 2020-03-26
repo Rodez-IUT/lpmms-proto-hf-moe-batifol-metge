@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="marging">16dp</dimen>
+    <dimen name="marging">25dp</dimen>
+    <dimen name="margingbp">15dp</dimen>
 
 
 

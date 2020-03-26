@@ -2,8 +2,11 @@ package iut.tp7.cadavreexquis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,49 +17,79 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    /** Nom de la partie */
+    /**
+     * Nom de la partie
+     */
     private EditText saisieNom;
-    /** Type de partie */
+    /**
+     * Type de partie
+     */
     private Spinner spinTypePartie;
     private ArrayAdapter<String> adapdateurTypePartie;
-    /** Nombre de manches */
+    /**
+     * Nombre de manches
+     */
     private Button bpManchesMoins;
     private TextView txtManches;
     private Button bpManchesPlus;
-    /** Nombre de joueurs */
+    /**
+     * Nombre de joueurs
+     */
     private Button bpJoueursMoins;
     private TextView txtJoueurs;
     private Button bpJoueursPlus;
-    /** Choix de la forme de la phrase */
+    /**
+     * Choix de la forme de la phrase
+     */
     private Button bpFormePhrase;
-    /** Thème de la partie */
+    /**
+     * Thème de la partie
+     */
     private Spinner spinTheme;
     private ArrayAdapter<String> adapdateurTheme;
-    /** Langue de la partie */
+    /**
+     * Langue de la partie
+     */
     private Spinner spinLangue;
     private ArrayAdapter<String> adapdateurLangue;
-    /** Confidentialité de la partie */
+    /**
+     * Confidentialité de la partie
+     */
     private Spinner spinConfidentialite;
     private ArrayAdapter<String> adapdateurConfidentialite;
 
-    /** Bouton inviter un ami */
+    /**
+     * Bouton inviter un ami
+     */
     private Button bpInviter;
     private TextView txtAmis;
 
-    /** Boutons de contrôle */
+    /**
+     * Boutons de contrôle
+     */
     private Button bpAnnuler;
     private Button bpCreer;
 
-    /** Nombre minimum de manches */
+    /**
+     * Nombre minimum de manches
+     */
     public final int NB_MANCHES_MIN = 1;
-    /** Nombre par défaut de manches */
+    /**
+     * Nombre par défaut de manches
+     */
     public final int NB_MANCHES_DEFAUT = 5;
 
-    /** Nombre minimum de joueurs */
+    /**
+     * Nombre minimum de joueurs
+     */
     public final int NB_JOUEURS_MIN = 3;
-    /** Nombre par défaut de joueurs */
+    /**
+     * Nombre par défaut de joueurs
+     */
     public final int NB_JOUEURS_DEFAUT = 5;
-    /** Nombre maximum de joueurs */
+    /**
+     * Nombre maximum de joueurs
+     */
     public final int NB_JOUEURS_MAX = 8;
 
     @Override
@@ -65,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /* On lie les attributs avec la vue */
-        saisieNom = (TextView) findViewById(R.id.saisieNom);
+        saisieNom = (EditText) findViewById(R.id.saisieNom);
         spinTypePartie = (Spinner) findViewById(R.id.spinTypePartie);
         bpManchesMoins = (Button) findViewById(R.id.bpManchesMoins);
         txtManches = (TextView) findViewById(R.id.txtManches);
@@ -103,6 +136,30 @@ public class MainActivity extends AppCompatActivity {
         adapdateurConfidentialite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinConfidentialite.setAdapter(adapdateurConfidentialite);
 
+        /* On place un écouteur sur le type de partie */
+        spinTypePartie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position < 4) {
+                    txtManches.setText(getResources().getStringArray(R.array.typesPartieNb)[position]);
+                    bpManchesMoins.setEnabled(false);
+                    bpManchesPlus.setEnabled(false);
+                } else { // personnalisée
+                    bpManchesMoins.setEnabled(true);
+                    bpManchesPlus.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Another interface callback
+            }
+        });
+
+        /* On initialise les nombres */
+        txtManches.setText(String.valueOf(NB_MANCHES_DEFAUT));
+        txtJoueurs.setText(String.valueOf(NB_JOUEURS_DEFAUT));
+
 
         // TODO continuer à initialiser
 
@@ -111,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Incrémente le nombre de manches
+     *
      * @param view
      */
     public void incrementerNbManches(View view) {
@@ -125,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Décrémente le nombre de manches s'il est au moins égal à 2
+     *
      * @param view
      */
     public void decrementerNbManches(View view) {
@@ -142,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Incrémente le nombre de joueurs
+     *
      * @param view
      */
     public void incrementerNbJoueurs(View view) {
@@ -153,12 +213,93 @@ public class MainActivity extends AppCompatActivity {
                 bpJoueursPlus.setEnabled(false);
             }
         }
-
+        bpFormePhrase.setEnabled(true);
         bpJoueursMoins.setEnabled(true);
     }
 
-    // TODO
+    /**
+     * Décrémente le nombre de joueurs s'il est au moins égal à 4
+     *
+     * @param view
+     */
+    public void decrementerNbJoueurs(View view) {
+        int nbJoueurs = Integer.valueOf(txtJoueurs.getText().toString());
+        if (nbJoueurs > NB_JOUEURS_MIN) { // on vérifie le nombre de manches
+            nbJoueurs--;
+            txtJoueurs.setText(String.valueOf(nbJoueurs));
+            if (nbJoueurs == NB_JOUEURS_MIN) { // si on est au minimum possible, on désactive le bouton moins et le paramétrage de la phrase
+                bpJoueursMoins.setEnabled(false);
+                bpFormePhrase.setEnabled(false);
+            }
+        }
+        bpJoueursPlus.setEnabled(true);
+    }
 
+
+    /**
+     * Ouvre la boîte de dialogue permettant de paramétrer la structure de la phrase
+     *
+     * @param view
+     */
+    public void parametrerFormePhrase(View view) {
+        // TODO algo
+    }
+
+    /**
+     * Ouvre la boîte de dialogue permettant d'inviter des amis dans la partie
+     *
+     * @param view
+     */
+    public void inviterAmis(View view) {
+        // TODO algo
+    }
+
+    /**
+     * Ouvre la boîte de dialogue permettant d'inviter des amis dans la partie
+     *
+     * @param view
+     */
+    public void afficherAide(View view) {
+        // TODO algo
+    }
+
+    /**
+     * Annule la création de la partie
+     * On ouvre une boîte de dialogue pour demander confirmation
+     * @param view
+     */
+    public void annuler(View view) {
+        new AlertDialog.Builder(this)
+                .setTitle("Annuler")
+                .setMessage("Etes-vous sûr de vouloir annuler la partie ?")
+                .setPositiveButton(android.R.string.yes,
+                        new DialogInterface.OnClickListener() {
+                            /* Clic sur "oui" */
+                            public void onClick(DialogInterface dialog, int which) {
+                                /* On ferme l'activité */
+                                fermerActivite();
+                            }
+                        })
+                .setNegativeButton(android.R.string.cancel, null)
+                .create()
+                .show();
+    }
+
+    /**
+     * Ferme l'activité
+     */
+    public void fermerActivite() {
+        finish();
+    }
+
+    /**
+     * Créé la partie
+     *
+     * @param view
+     */
+    public void creer(View view) {
+        // TODO algo
+    }
 
 
 }
