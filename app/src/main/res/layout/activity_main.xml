@@ -204,9 +204,11 @@
 
             <TextView
                 android:id="@+id/txtAmis"
+                android:layout_height="match_parent"
                 android:layout_span="3"
-                android:maxLength="15"
-                android:singleLine="true" />
+                android:maxLength="100"
+                android:inputType="textMultiLine"
+                android:scrollbars="vertical"/>
 
         </TableRow>
 

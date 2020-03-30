@@ -64,5 +64,15 @@
         <item>"Amis uniquement"</item>
     </string-array>
 
+    <!-- Boîte dialogue ajout ami -->
+    <string name="titre_invitation">Inviter des amis</string>
+    <string name="btn_valider_invitation">Valider</string>
+    <string name="btn_retour_invitation">Retour</string>
+
+    <string-array name="amis">
+        <item>"Jean-Paul"</item>
+        <item>"Jean-Michel"</item>
+        <item>"Jean-Patrick"</item>
+    </string-array>
 
 </resources>

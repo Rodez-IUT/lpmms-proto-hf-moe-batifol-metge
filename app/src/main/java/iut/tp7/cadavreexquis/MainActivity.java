@@ -9,11 +9,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -92,6 +96,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public final int NB_JOUEURS_MAX = 8;
 
+    /**
+     * Amis invités dans la partie
+     */
+    public List<Boolean> amisInvites;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,6 +144,12 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.confidentialites));
         adapdateurConfidentialite.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinConfidentialite.setAdapter(adapdateurConfidentialite);
+
+        /* On initialise la liste des amis invité */
+        amisInvites = new ArrayList<Boolean>();
+        amisInvites.add(false); // ami1
+        amisInvites.add(false); // ...
+        amisInvites.add(false);
 
         /* On place un écouteur sur le type de partie */
         spinTypePartie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -251,7 +266,77 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void inviterAmis(View view) {
-        // TODO algo
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View boiteInvitation = getLayoutInflater().inflate(R.layout.inviter_amis, null);
+        mBuilder.setView(boiteInvitation);
+        mBuilder.setTitle(getResources().getString(R.string.titre_invitation));
+
+        /* On charge les widgets de l'alertdialog */
+        final CheckBox cbxAmi1 = (CheckBox) boiteInvitation.findViewById(R.id.cbxAmi1);
+        final CheckBox cbxAmi2 = (CheckBox) boiteInvitation.findViewById(R.id.cbxAmi2);
+        final CheckBox cbxAmi3 = (CheckBox) boiteInvitation.findViewById(R.id.cbxAmi3);
+
+        /* On initialise */
+        cbxAmi1.setText(getResources().getStringArray(R.array.amis)[0]);
+        cbxAmi2.setText(getResources().getStringArray(R.array.amis)[1]);
+        cbxAmi3.setText(getResources().getStringArray(R.array.amis)[2]);
+
+        /* On regarde si des amis ont déjà été invités */
+        if (amisInvites.get(0)) {
+            cbxAmi1.setChecked(true);
+        }
+        if (amisInvites.get(1)) {
+            cbxAmi2.setChecked(true);
+        }
+        if (amisInvites.get(2)) {
+            cbxAmi3.setChecked(true);
+        }
+
+        mBuilder.setPositiveButton(getResources().getString(R.string.btn_valider_invitation), null);
+        mBuilder.setNegativeButton(getResources().getString(R.string.btn_retour_invitation), null);
+        final AlertDialog alertDialog = mBuilder.create();
+        alertDialog.show();
+
+        /* On override la méthode onclick du bouton ce qui désactive la fermeture de la boîte de dialogue par défaut */
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (cbxAmi1.isChecked()) {
+                    amisInvites.set(0, true);
+                } else {
+                    amisInvites.set(0, false);
+                }
+                if (cbxAmi2.isChecked()) {
+                    amisInvites.set(1, true);
+                } else {
+                    amisInvites.set(1, false);
+                }
+                if (cbxAmi3.isChecked()) {
+                    amisInvites.set(2, true);
+                } else {
+                    amisInvites.set(2, false);
+                }
+
+                /* On met à jour la liste des invités */
+                mettreAJourListeInvites();
+                /* On ferme la boîte de dialogue */
+                alertDialog.dismiss();
+            }
+        });
+    }
+
+    /**
+     * Met à jour le champ texte contenant la liste des invités
+     */
+    private void mettreAJourListeInvites() {
+        StringBuilder amis = new StringBuilder("");
+        for (int indice = 0 ; indice < amisInvites.size() ; indice++) {
+            if (amisInvites.get(indice)) { // si vrai
+                amis.append(getResources().getStringArray(R.array.amis)[indice] + "\n");
+            }
+        }
+        txtAmis.setText(amis.toString());
     }
 
     /**
@@ -266,6 +351,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Annule la création de la partie
      * On ouvre une boîte de dialogue pour demander confirmation
+     *
      * @param view
      */
     public void annuler(View view) {
