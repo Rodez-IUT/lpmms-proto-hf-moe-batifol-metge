@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -20,17 +21,19 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+
         <TableRow>
 
             <Button
                 android:id="@+id/bpAide"
                 style="@style/bpplusmoins"
                 android:layout_width="11dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_column="3"
                 android:layout_marginRight="@dimen/marging"
                 android:layout_span="1"
                 android:text="@string/aide"
+                android:textSize="20dp"
                 android:onClick="afficherAide"/>
         </TableRow>
 
@@ -235,4 +238,4 @@
 
 
     </TableLayout>
-</ScrollView>
+</LinearLayout>

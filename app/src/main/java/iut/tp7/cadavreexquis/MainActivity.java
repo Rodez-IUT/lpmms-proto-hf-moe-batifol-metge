@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -260,7 +261,13 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void afficherAide(View view) {
-        // TODO algo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.aideTitre);
+        builder.setMessage(R.string.aideMessage);
+        builder.setCancelable(true);
+        builder.setNegativeButton("Retour", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     /**
@@ -298,7 +305,15 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void creer(View view) {
-        // TODO algo
+
+
+        if(saisieNom.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), R.string.NomPartieVide, Toast.LENGTH_SHORT).show();
+        }else{
+            // TODO algo
+        }
+
+
     }
 
 

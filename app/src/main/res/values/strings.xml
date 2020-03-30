@@ -24,7 +24,12 @@
 
 
 
-    <!-- hind  -->
+    <!-- message  -->
+    <string name="NomPartieVide">Veuillez saisir un nom de partie</string>
+    <string name="aideTitre">💀Aide💀</string>
+    <string name="aideMessage">☠TODO à définir🐲\nCar je ne sais pas encore quoi y écrire🤔, du coup j\'écris ce qu\'il faudra faire🙂, et ce qui me passe par l\'esprit afin de comblé le vide🙄.\nMais aussi pour faire plus réaliste!\n 😁</string>
+
+
 
 
     <!-- Liste des types de partie -->
