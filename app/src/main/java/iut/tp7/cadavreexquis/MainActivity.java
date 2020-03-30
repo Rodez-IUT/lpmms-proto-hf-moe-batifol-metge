@@ -393,9 +393,9 @@ public class MainActivity extends AppCompatActivity {
     public void creer(View view) {
 
 
-        if(saisieNom.getText().toString().isEmpty()){
+        if (saisieNom.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), R.string.NomPartieVide, Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             // TODO algo
         }
 

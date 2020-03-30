@@ -74,6 +74,7 @@
     <string name="btn_valider_invitation">Valider</string>
     <string name="btn_retour_invitation">Retour</string>
 
+    <!-- Liste des amis -->
     <string-array name="amis">
         <item>"Jean-Paul"</item>
         <item>"Jean-Michel"</item>
