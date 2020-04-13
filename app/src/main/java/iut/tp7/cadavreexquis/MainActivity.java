@@ -175,10 +175,6 @@ public class MainActivity extends AppCompatActivity {
         /* On initialise les nombres */
         txtManches.setText(String.valueOf(NB_MANCHES_DEFAUT));
         txtJoueurs.setText(String.valueOf(NB_JOUEURS_DEFAUT));
-
-
-        // TODO continuer à initialiser
-
     }
 
 
@@ -191,9 +187,6 @@ public class MainActivity extends AppCompatActivity {
         int nbManches = Integer.valueOf(txtManches.getText().toString());
         nbManches++;
         txtManches.setText(String.valueOf(nbManches));
-
-        // TODO si nbManches correspond à une possibilité des nombres prédéfinis
-
         bpManchesMoins.setEnabled(true);
     }
 
@@ -211,8 +204,6 @@ public class MainActivity extends AppCompatActivity {
                 bpManchesMoins.setEnabled(false);
             }
         }
-
-        // TODO si nbManches correspond à une possibilité des nombres prédéfinis
     }
 
     /**
@@ -258,7 +249,109 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void parametrerFormePhrase(View view) {
-        // TODO algo
+        final AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View boiteFormePhrase = getLayoutInflater().inflate(R.layout.choisir_forme_phrase, null);
+        mBuilder.setView(boiteFormePhrase);
+        mBuilder.setTitle(getResources().getString(R.string.titre_forme_phrase));
+
+        /* On charge les widgets de l'alertdialog */
+        final TextView txtNumeroSection = (TextView) boiteFormePhrase.findViewById(R.id.txtNumeroSection);
+        final Spinner spinType = (Spinner) boiteFormePhrase.findViewById(R.id.spinType);
+        final TextView txtDefinition = (TextView) boiteFormePhrase.findViewById(R.id.txtDefinition);
+        final Button bpSectionMoins = (Button) boiteFormePhrase.findViewById(R.id.bpSectionMoins);
+        final Button bpSectionPlus = (Button) boiteFormePhrase.findViewById(R.id.bpSectionPlus);
+        /* Clic sur bouton section précédente */
+        bpSectionMoins.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int sectionCourante = Integer.valueOf(txtNumeroSection.getText().toString());
+                bpSectionPlus.setEnabled(true);
+                if (sectionCourante > 1) {
+                    sectionCourante--;
+                    txtNumeroSection.setText(String.valueOf(sectionCourante));
+                    spinType.setEnabled(true);
+                    if (sectionCourante == 1) {
+                        spinType.setSelection(0);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[0]);
+                        spinType.setEnabled(false);
+                    } else if (sectionCourante == 2) {
+                        spinType.setSelection(1);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[1]);
+                        spinType.setEnabled(false);
+                    } else if (sectionCourante == 3) {
+                        spinType.setSelection(2);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[2]);
+                        spinType.setEnabled(false);
+                    }
+                    if (sectionCourante < 2) {
+                        bpSectionMoins.setEnabled(false);
+                    }
+                }
+            }
+        });
+        /* Clic sur bouton section suivante */
+        bpSectionPlus.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                int sectionCourante = Integer.valueOf(txtNumeroSection.getText().toString());
+                bpSectionMoins.setEnabled(true);
+                if (sectionCourante < Integer.valueOf(txtJoueurs.getText().toString())) {
+                    sectionCourante++;
+                    txtNumeroSection.setText(String.valueOf(sectionCourante));
+                    spinType.setEnabled(true);
+                    if (sectionCourante == 1) {
+                        spinType.setSelection(0);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[0]);
+                        spinType.setEnabled(false);
+                    } else if (sectionCourante == 2) {
+                        spinType.setSelection(1);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[1]);
+                        spinType.setEnabled(false);
+                    } else if (sectionCourante == 3) {
+                        spinType.setSelection(2);
+                        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[2]);
+                        spinType.setEnabled(false);
+                    }
+                    if (sectionCourante >= Integer.valueOf(txtJoueurs.getText().toString())) {
+                        bpSectionPlus.setEnabled(false);
+                    }
+                }
+            }
+        });
+        /* Nouveau type sélectionné */
+        spinType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view,
+                                       int position, long id) {
+                txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[position]);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        /* Initialisations */
+        txtNumeroSection.setText("1");
+        bpSectionMoins.setEnabled(false);
+        spinType.setEnabled(false);
+        ArrayAdapter adapdateurType = new ArrayAdapter<String>(boiteFormePhrase.getContext(),
+                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.elements_phrase));
+        adapdateurType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinType.setAdapter(adapdateurType);
+        txtDefinition.setText(getResources().getStringArray(R.array.definition_elements_phrase)[0]);
+
+        mBuilder.setPositiveButton(getResources().getString(R.string.btn_valider_invitation), null);
+        mBuilder.setNegativeButton(getResources().getString(R.string.btn_retour_invitation), null);
+        final AlertDialog alertDialog = mBuilder.create();
+        alertDialog.show();
+
+        /* On override la méthode onclick du bouton ce qui désactive la fermeture de la boîte de dialogue par défaut */
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /* On ferme la boîte de dialogue */
+                alertDialog.dismiss();
+            }
+        });
     }
 
     /**
@@ -332,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void mettreAJourListeInvites() {
         StringBuilder amis = new StringBuilder("");
-        for (int indice = 0 ; indice < amisInvites.size() ; indice++) {
+        for (int indice = 0; indice < amisInvites.size(); indice++) {
             if (amisInvites.get(indice)) { // si vrai
                 amis.append(getResources().getStringArray(R.array.amis)[indice] + "\n");
             }
@@ -391,15 +484,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void creer(View view) {
-
-
         if (saisieNom.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), R.string.NomPartieVide, Toast.LENGTH_SHORT).show();
         } else {
             // TODO algo
         }
-
-
     }
 
 

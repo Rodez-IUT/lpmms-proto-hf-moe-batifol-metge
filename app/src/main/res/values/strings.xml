@@ -27,7 +27,7 @@
     <!-- message  -->
     <string name="NomPartieVide">Veuillez saisir un nom de partie</string>
     <string name="aideTitre">💀Aide💀</string>
-    <string name="aideMessage">☠TODO à définir🐲\nCar je ne sais pas encore quoi y écrire🤔, du coup j\'écris ce qu\'il faudra faire🙂, et ce qui me passe par l\'esprit afin de comblé le vide🙄.\nMais aussi pour faire plus réaliste!\n 😁</string>
+    <string name="aideMessage">☠TODO à définir🐲\nCar je ne sais pas encore quoi y écrire🤔, du coup j\'écris ce qu\'il faudra faire🙂, et ce qui me passe par l\'esprit afin de combler le vide🙄.\nMais aussi pour faire plus réaliste!\n 😁</string>
 
 
 
@@ -79,6 +79,25 @@
         <item>"Jean-Paul"</item>
         <item>"Jean-Michel"</item>
         <item>"Jean-Patrick"</item>
+    </string-array>
+
+    <!-- Boîte dialogue -->
+    <string name="titre_forme_phrase">Forme phrase</string>
+    <string name="titre_section">Section</string>
+    <string name="titre_definition">Définition</string>
+
+    <string-array name="definition_elements_phrase">
+        <item>"L'être vivant ou l'objet concerné par la phrase"</item>
+        <item>"L'action réalisée par le sujet"</item>
+        <item>"Le sujet fait 'qui' ou 'quoi'"</item>
+        <item>"Le sujet fait 'à qui' ou 'à quoi'"</item>
+    </string-array>
+
+    <string-array name="elements_phrase">
+        <item>"Sujet"</item>
+        <item>"Verbe"</item>
+        <item>"COD"</item>
+        <item>"COI"</item>
     </string-array>
 
 </resources>

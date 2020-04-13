@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1,2,3">
+
+    <TableRow>
+        <TextView
+            android:text="@string/titre_section"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_span="4"
+            android:layout_column="0"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/txtNumeroSection"
+            android:text="-1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_gravity="center"
+            android:layout_span="4"
+            android:layout_column="0"/>
+    </TableRow>
+
+    <TableRow>
+        <Spinner
+            android:id="@+id/spinType"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_span="4"
+            android:layout_column="0"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:id="@+id/bpSectionMoins"
+            style="@style/bpplusmoins"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_column="0"
+            android:layout_span="1"
+            android:text="@string/moins"/>
+
+        <TextView
+            android:text="@string/titre_definition"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:layout_span="2"
+            android:layout_column="1"/>
+
+        <Button
+            android:id="@+id/bpSectionPlus"
+            style="@style/bpplusmoins"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_column="3"
+            android:layout_span="1"
+            android:text="@string/plus"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/txtDefinition"
+            android:text="TODO la def"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_span="4"
+            android:layout_column="0"/>
+    </TableRow>
+
+</TableLayout>

@@ -1,242 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:stretchColumns="2"
-        tools:context=".MainActivity">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marging"
-            android:gravity="center"
-            android:text="@string/Titre"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/bpAide"
-                style="@style/bpplusmoins"
-                android:layout_width="11dp"
-                android:layout_height="40dp"
-                android:layout_column="3"
-                android:layout_marginRight="@dimen/marging"
-                android:layout_span="1"
-                android:text="@string/aide"
-                android:textSize="20dp"
-                android:onClick="afficherAide"/>
-        </TableRow>
-
-        <TableRow>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="2"
+            tools:context=".MainActivity">
 
             <TextView
-                style="@style/text"
-                android:text="@string/Nom" />
-
-            <EditText
-                android:id="@+id/saisieNom"
-                android:layout_span="3"
-                android:maxLength="15"
-                android:singleLine="true" />
-
-        </TableRow>
-
-
-        <TableRow>
-
-            <TextView
-                style="@style/text"
-                android:text="@string/Type" />
-
-            <Spinner
-                android:id="@+id/spinTypePartie"
-                android:layout_span="3"
-                android:maxLength="15" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                style="@style/text"
-                android:text="@string/Manche" />
-
-            <Button
-                android:id="@+id/bpManchesMoins"
-                style="@style/bpplusmoins"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_span="1"
-                android:text="@string/moins"
-                android:onClick="decrementerNbManches"/>
-
-            <TextView
-                android:id="@+id/txtManches"
-                android:layout_width="20dp"
-                android:layout_column="2"
-                android:layout_span="1"
-                android:maxLength="15"
-                android:singleLine="true"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/bpManchesPlus"
-                style="@style/bpplusmoins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_span="1"
-                android:text="@string/plus"
-                android:onClick="incrementerNbManches"/>
-
-        </TableRow>
+                android:layout_marginTop="@dimen/marging"
+                android:gravity="center"
+                android:text="@string/Titre"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
 
-        <TableRow>
+            <TableRow>
 
-            <TextView
-                style="@style/text"
-                android:text="@string/Joueur" />
+                <Button
+                    android:id="@+id/bpAide"
+                    style="@style/bpplusmoins"
+                    android:layout_width="11dp"
+                    android:layout_height="40dp"
+                    android:layout_column="3"
+                    android:layout_marginRight="@dimen/marging"
+                    android:layout_span="1"
+                    android:onClick="afficherAide"
+                    android:text="@string/aide"
+                    android:textSize="20dp" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/bpJoueursMoins"
-                style="@style/bpplusmoins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_span="1"
-                android:text="@string/moins"
-                android:onClick="decrementerNbJoueurs"/>
+            <TableRow>
 
-            <TextView
-                android:id="@+id/txtJoueurs"
-                android:layout_column="2"
-                android:layout_span="1"
-                android:maxLength="15"
-                android:singleLine="true"
-                android:textAlignment="center" />
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Nom" />
 
-            <Button
-                android:id="@+id/bpJoueursPlus"
-                style="@style/bpplusmoins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:layout_span="1"
-                android:text="@string/plus"
-                android:onClick="incrementerNbJoueurs"/>
+                <EditText
+                    android:id="@+id/saisieNom"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="3"
+                    android:maxLength="15"
+                    android:singleLine="true" />
 
-        </TableRow>
-
-        <TableRow>
+            </TableRow>
 
 
-            <Button
-                android:id="@+id/bpFormePhrase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="1"
-                android:layout_span="3"
-                android:text="@string/FormePhrase"
-                android:onClick="parametrerFormePhrase"/>
+            <TableRow>
+
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Type" />
+
+                <Spinner
+                    android:id="@+id/spinTypePartie"
+                    android:layout_span="3"
+                    android:maxLength="15" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Manche" />
+
+                <Button
+                    android:id="@+id/bpManchesMoins"
+                    style="@style/bpplusmoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:onClick="decrementerNbManches"
+                    android:text="@string/moins" />
+
+                <TextView
+                    android:id="@+id/txtManches"
+                    android:layout_width="20dp"
+                    android:layout_column="2"
+                    android:layout_span="1"
+                    android:maxLength="15"
+                    android:singleLine="true"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/bpManchesPlus"
+                    style="@style/bpplusmoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="1"
+                    android:onClick="incrementerNbManches"
+                    android:text="@string/plus" />
+
+            </TableRow>
 
 
-        </TableRow>
+            <TableRow>
 
-        <TableRow>
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Joueur" />
 
-            <TextView
-                style="@style/text"
-                android:text="@string/Theme" />
+                <Button
+                    android:id="@+id/bpJoueursMoins"
+                    style="@style/bpplusmoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_span="1"
+                    android:onClick="decrementerNbJoueurs"
+                    android:text="@string/moins" />
 
-            <Spinner
-                android:id="@+id/spinTheme"
-                android:layout_span="3"
-                android:maxLength="15" />
+                <TextView
+                    android:id="@+id/txtJoueurs"
+                    android:layout_column="2"
+                    android:layout_span="1"
+                    android:maxLength="15"
+                    android:singleLine="true"
+                    android:textAlignment="center" />
 
-        </TableRow>
+                <Button
+                    android:id="@+id/bpJoueursPlus"
+                    style="@style/bpplusmoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="1"
+                    android:onClick="incrementerNbJoueurs"
+                    android:text="@string/plus" />
 
-        <TableRow>
+            </TableRow>
 
-            <TextView
-                style="@style/text"
-                android:text="@string/Langue" />
-
-            <Spinner
-                android:id="@+id/spinLangue"
-                android:layout_span="3"
-                android:maxLength="15" />
-
-        </TableRow>
-
-
-        <TableRow>
-
-            <TextView
-                style="@style/text"
-                android:text="@string/Confidentialite" />
-
-            <Spinner
-                android:id="@+id/spinConfidentialite"
-                android:layout_span="3"
-                android:maxLength="15" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/bpInviter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_span="1"
-                android:text="@string/Inviter"
-                android:onClick="inviterAmis"/>
-
-            <TextView
-                android:id="@+id/txtAmis"
-                android:layout_height="match_parent"
-                android:layout_span="3"
-                android:maxLength="100"
-                android:inputType="textMultiLine"
-                android:scrollbars="vertical"/>
-
-        </TableRow>
+            <TableRow>
 
 
-        <TableRow>
+                <Button
+                    android:id="@+id/bpFormePhrase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="3"
+                    android:onClick="parametrerFormePhrase"
+                    android:text="@string/FormePhrase" />
 
-            <Button
-                android:id="@+id/bpAnnuler"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_span="1"
-                android:text="@string/annuler"
-                android:onClick="annuler"/>
 
-            <Button
-                android:id="@+id/bpCreer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_span="2"
-                android:text="@string/creer"
-                android:onClick="creer"/>
+            </TableRow>
 
-        </TableRow>
+            <TableRow>
 
-    </TableLayout>
-</LinearLayout>
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Theme" />
+
+                <Spinner
+                    android:id="@+id/spinTheme"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="3"
+                    android:maxLength="15" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Langue" />
+
+                <Spinner
+                    android:id="@+id/spinLangue"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="3"
+                    android:maxLength="15" />
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <TextView
+                    style="@style/text"
+                    android:text="@string/Confidentialite" />
+
+                <Spinner
+                    android:id="@+id/spinConfidentialite"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="3"
+                    android:maxLength="15" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/bpInviter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginLeft="15dp"
+                    android:layout_span="1"
+                    android:onClick="inviterAmis"
+                    android:text="@string/Inviter" />
+
+                <TextView
+                    android:id="@+id/txtAmis"
+                    android:layout_height="match_parent"
+                    android:layout_span="3"
+                    android:inputType="textMultiLine"
+                    android:maxLength="100"
+                    android:scrollbars="vertical" />
+
+            </TableRow>
+
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/bpAnnuler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_marginLeft="15dp"
+                    android:layout_span="1"
+                    android:onClick="annuler"
+                    android:text="@string/annuler" />
+
+                <Button
+                    android:id="@+id/bpCreer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_marginRight="15dp"
+                    android:layout_span="2"
+                    android:onClick="creer"
+                    android:text="@string/creer" />
+
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>
